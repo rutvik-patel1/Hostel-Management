@@ -1,0 +1,15 @@
+student
+
+fullname
+number 
+email
+address
+passign month 
+passing year
+
+
+hostel {
+    hostelno.(1)
+    floorno.(1)
+    roon no.(2)
+}
