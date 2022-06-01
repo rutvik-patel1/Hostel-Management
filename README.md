@@ -19,6 +19,11 @@ npm run build
 
 ## sqlite3 + node js + express
 
+## Project setup
+```
+npm install
+```
+
 ### Compiles and hot-reloads for development
 ```
 npm start
