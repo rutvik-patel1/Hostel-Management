@@ -1,15 +1,16 @@
 import axios from 'axios';
 import store from '../store/index'
-
+import Cookies from 'js-cookie'
 const axiosInstance = axios.create({
     baseURL : process.env.VUE_APP_RESTURL
 })
 
 axiosInstance.interceptors.request.use(
     async (request)=>{
-        console.log(store.getters['user/token'])
-    if (await store.getters['user/token']) {
-        request.headers["Authorization"] = "Bearer " + store.getters['user/token'];
+        // console.log(store.getters['user/token'])
+        const token = Cookies.get('token')
+    if (token) {
+        request.headers["Authorization"] = "Bearer " + token;
       }
       request.headers['Access-Control-Allow-Origin'] = '*'
       return request;

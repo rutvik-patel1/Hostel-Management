@@ -1,7 +1,7 @@
-import { login } from '../../api/auth'
-
+import { details, login } from '../../api/auth'
+import Cookies from 'js-cookie'
 const state = {
-    token:"",
+    token: Cookies.get('token'),
     email:"",
     isAdmin:false,
 }
@@ -34,14 +34,18 @@ const mutations = {
 }
 const actions = {
     login({commit},credentials){
-        // console.log(credentials)
+    
         const { email , password } = credentials
         return new Promise((resolve,reject) => {
-            login({ email: email, password: password })
-                .then((response) => {
-                    const { data } = response;
-                    console.log(data)
+            const payload = { 
+                email: email, 
+                password: password
+             }
+            login(payload).then((response) =>{ 
+                    const data  = response.data;
+                    console.log("data",data)
                     commit("SET_TOKEN", data.token);
+                    Cookies.set('token',data.token,{expires: 1});
                     commit("SET_EMAIL",email)
                     if(data.role == 'admin'){
                         commit("SET_ISADMIN",true)
@@ -56,10 +60,23 @@ const actions = {
                 });
         })
     },
-    logout({commit}){
-
-    }
-
+    getInfo({ commit}) {
+        return new Promise((resolve, reject) => {
+            details()
+                .then((response) => {
+                    const data  = response.data.data;
+                    console.log("ahdfsdbffdgsjdfgbjdslfbgajf",data)
+                    commit("SET_EMAIL",data.email)
+                    if(data.role == 'admin'){
+                        commit("SET_ISADMIN",true)
+                    };
+                    resolve(data)
+                })
+                .catch((error) => {
+                    reject(error);
+                });
+        });
+    },
 }
 
 export default {

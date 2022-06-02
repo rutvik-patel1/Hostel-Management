@@ -5,8 +5,8 @@
     <img src="../assets/logo.png" alt="Logo" width="100">
     <label for="email">Email</label>
     <input id="email" type="email" v-model="email" placeholder="Email address">
-    <label for="">Password</label>
-    <input type="password" v-model="password" placeholder="Enter password">
+    <label for="password">Password</label>
+    <input id="password" type="password" v-model="password" placeholder="Enter password">
     <button type="submit">{{ isLoading? 'wait....' :'Sign In' }}</button>
     </form>
     <router-link to="/register"> Don't have an account ? Register! </router-link>
