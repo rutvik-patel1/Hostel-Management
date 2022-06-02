@@ -24,11 +24,11 @@
                <td>{{ student.address }}</td>
                <td>{{ student.passingMonth +" /"+student.passingYear }}</td>
                <td>
-               <select v-model="roomNo">
+               <select v-model="roomNo[student.id]">
                <option value="0" disabled >Select</option>
                <option v-for="room in rooms" :key="room" :value="room">{{ room }}</option>
                </select>
-               <button @click="allocateRoom(student.id,roomNo)" :disabled="roomNo == 0 ? true : false ">Allocate Room</button>
+               <button @click="allocateRoom(student.id,roomNo[student.id])" :disabled="roomNo == 0 ? true : false ">Allocate Room</button>
                </td>
              </tr>
            </tbody>
@@ -46,7 +46,7 @@ created(){
 data() {
   return {
     students:[],
-    roomNo:0,
+    roomNo:[],
     rooms:[]
   }
 },
