@@ -29,6 +29,15 @@ const routes = [
     path: '/admin',
     name: 'Admin',
     meta: { requiresAuth: true },
+    beforeEnter: async (to, from, next) => {
+      const isAdmin = await store.getters['user/isAdmin']
+      if(isAdmin){
+        next()
+      }
+      else{
+        next('/dashboard')
+      }
+    },
     component: () => import('../views/admin/AdminDashboard.vue'),
     children:[
     
@@ -72,11 +81,13 @@ const router = createRouter({
 
 
 router.beforeEach(async (to, from, next) => {
-  if (!store.getters['user/token'] && to.path !== '/login' && to.matched.some((record) => record.meta.requiresAuth) ) {
+
+  const hasToken = await store.getters['user/token']
+  if (!hasToken && to.path !== '/login' && to.matched.some((record) => record.meta.requiresAuth) ) {
     next('/login')
   }
   else{
-    next() 
+    next()
   }
 });
 
