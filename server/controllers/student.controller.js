@@ -1,6 +1,6 @@
 const Student = require("../models/student.model");
 const Room = require("../models/room.model");
-
+const User = require('../models/user.model')
 const uploadStudentDetails = (req, res) => {
   try { console.log("===>",req.body)
     let { fullname, email, mobile, address, passingMonth, passingYear } =
@@ -67,6 +67,26 @@ const getStudentDetails = async (req, res) => {
     } else {
     
       return res.status(200).json({ data: student });
+    }
+  } catch (error) {
+    return res.status(404).json({ error: error.message });
+  }
+};
+
+const getDetails = async (req, res) => {
+  try {
+    console.log("req.useremail",req.useremail)
+    const student = await User.findOne({
+      where: { email: req.useremail },
+    });
+    // console.log("student",student)
+    if (!student) {
+     
+      return res.status(200).json({ data:[] });
+    } else {
+        const { email,role } = student
+        const result = { email:email , role:role }
+      return res.status(200).json({ data: result });
     }
   } catch (error) {
     return res.status(404).json({ error: error.message });
@@ -160,4 +180,5 @@ module.exports = {
   getAllStudentDetails,
   getStudentDetailsById,
   editStudentDetails,
+  getDetails
 };
