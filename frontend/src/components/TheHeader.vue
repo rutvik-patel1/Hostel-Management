@@ -13,7 +13,7 @@
 
 <script>
 import { mapState } from 'vuex'
-
+import Cookies from 'js-cookie'
 export default {
     created(){
       // console.log(this.$store.state.user.email)
@@ -27,6 +27,7 @@ export default {
             text: "You are logged out",
             type:'success'
           });
+        Cookies.remove('token')
       }
     },
     computed:{

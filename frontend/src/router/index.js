@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import store  from '../store/index'
+import { details } from '../api/auth'
+import { notify } from '@kyvg/vue3-notification'
+import Cookies from 'js-cookie'
 const routes = [
   {
     path: '/',
@@ -82,11 +85,18 @@ const router = createRouter({
 
 router.beforeEach(async (to, from, next) => {
 
-  const hasToken = await store.getters['user/token']
+  const hasToken = Cookies.get('token')
   if (!hasToken && to.path !== '/login' && to.matched.some((record) => record.meta.requiresAuth) ) {
     next('/login')
   }
   else{
+    try{
+       await store.dispatch("user/getInfo");
+
+    }
+    catch(error){
+      console.log("error in navigation guard")
+    }
     next()
   }
 });
