@@ -14,7 +14,7 @@ const uploadStudentDetails = (req, res) => {
       !passingMonth ||
       !passingYear
     ) {
-      return res.json({ message: "please resent data properly" });
+      return res.status(400).json({ message: "please resent data properly" });
     }
     const student = {
       fullname: req.body.fullname,

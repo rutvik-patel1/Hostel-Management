@@ -8,13 +8,13 @@
           <!-- fullname,emil,mobile,address,passing month,passing year -->
           <div style="font-size: 26px; font-weight: 600">Registration Form</div>
           <label for="fullname">Fullname:</label>
-          <input type="text" id="fullname" v-model="form.fullname" />
+          <input type="text" id="fullname" v-model="form.fullname" required/>
           <label for="email">Email Id:</label>
-          <input type="email" id="email" v-model="form.email" />
+          <input type="email" id="email" v-model="form.email" required/>
           <label for="fullname">Mobile No.:</label>
-          <input type="number" v-model="form.mobile" />
+          <input type="number" v-model="form.mobile" required/>
           <label for="add">Address:</label>
-          <input type="text" id="add" v-model="form.address" />
+          <input type="text" id="add" v-model="form.address" required/>
           <div
             style="
               display: flex;
@@ -23,7 +23,7 @@
             "
           >
             <label for="month">Passout Month:</label>
-            <select id="month" @change="selectchanged" v-model="month">
+            <select id="month" @change="selectchanged" v-model="month" required>
               <option selected value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -38,7 +38,7 @@
               <option value="12">12</option>
             </select>
             <label for="year">Passout Year:</label>
-            <select  id="year" v-model="year">
+            <select  id="year" v-model="year" required>
               <option value="2022">2022</option>
               <option value="2023">2023</option>
               <option value="2024">2024</option>
@@ -125,7 +125,13 @@ export default {
      .then(()=>{
        this.getData()
      })
-     .catch((err) => (console.log(err)))
+     .catch((err) => {
+       this.$notify({
+            title: "Error",
+            text: 'Send complete data!',
+            type:'error'
+            });
+     })
     },
     getData(){
       getStudentData()
