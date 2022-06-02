@@ -4,9 +4,9 @@
     <form @submit.prevent="Register">
    <img src="../assets/logo.png" alt="Logo" width="100">
     <label for="email">Email</label>
-    <input id="email" type="email" v-model="email" placeholder="Email address">
+    <input id="email" type="email" v-model="email" placeholder="Email address" required>
     <label for="password">Password</label>
-    <input id="password" type="password" v-model="password" placeholder="password">
+    <input id="password" type="password" v-model="password" placeholder="password" required>
     <button type="submit">Register</button>
     </form>
     <router-link to="/login"> Already have an account ? Login! </router-link>
@@ -21,8 +21,8 @@ created(){
    },
    data() {
      return {
-       email:'rutvik@gmail.com',
-       password:'123456'
+       email:'',
+       password:''
      }
    },
    methods: {
@@ -60,7 +60,7 @@ created(){
   border: 1px solid rgb(202, 197, 197);
   border-radius:8px;
   display: block;
-  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 4px 8px 0px rgba(253, 212, 212, 0.2);
   max-width: 500px;
   text-align:center;
   background-color: #f7f7f7;
