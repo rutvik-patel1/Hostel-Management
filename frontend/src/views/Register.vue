@@ -63,6 +63,7 @@ created(){
   box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
   max-width: 500px;
   text-align:center;
+  background-color: #f7f7f7;
   margin-top:60px;
 }
 .title{
