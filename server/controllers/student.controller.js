@@ -25,7 +25,7 @@ const uploadStudentDetails = (req, res) => {
       passingYear: req.body.passingYear,
     };
     Student.create(student)
-      .then((result) => {
+      .then(() => {
         return res.json({ message: "post successfully" });
       })
       .catch((err) => res.json({ message: err.message }));

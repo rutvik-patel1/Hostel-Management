@@ -1,7 +1,7 @@
 var express = require('express');
 const { allocateRoom, availableRooms,allRooms,allAvailableRooms,getStudentInRoomById } = require('../controllers/rector.controller');
 var router = express.Router();
-var {addNewRoom,getStudentDetails,getAllPendingStudentDetails ,getStudentDetailsById,getAllStudentDetails ,editStudentDetails }  = require('../controllers/student.controller')
+var {addNewRoom,getAllPendingStudentDetails ,getStudentDetailsById,getAllStudentDetails ,editStudentDetails }  = require('../controllers/student.controller')
 var verifyToken = require('../middleware/verifyToken')
 var isAdmin = require('../middleware/isAdmin')
 

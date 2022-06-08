@@ -2,7 +2,7 @@ const User = require('../models/user.model')
 var bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const login  = async(req,res,next) => { 
+const login  = async(req,res) => { 
     try {
         if (!req.body.email || !req.body.password) {
             res.json({ error: "data not sent properly" });
@@ -19,6 +19,7 @@ const login  = async(req,res,next) => {
             if (validPass) {
               const token = await jwt.sign(
                 { email: req.body.email ,role: foundUser.role },
+                // eslint-disable-next-line no-undef
                 process.env.SECRET_KEY,
                 { expiresIn: "365d" }
               );
@@ -36,7 +37,7 @@ const login  = async(req,res,next) => {
     }   
 }
 
-const register  = async(req,res,next) => { 
+const register  = async(req,res) => { 
     try {
          const { email , password } = req.body
           // console.log(email,password)
@@ -75,7 +76,7 @@ const register  = async(req,res,next) => {
       
 } 
 
-const logout  = (req,res,next) => { 
+const logout  = (req,res) => { 
     return res.json({message:"logout"})
 }
 

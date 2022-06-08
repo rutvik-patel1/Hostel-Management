@@ -1,4 +1,7 @@
+/* eslint-disable vue/multi-word-component-names */
+
 <template>
+
   <div>
     <the-header></the-header>
 <div class="main-container">

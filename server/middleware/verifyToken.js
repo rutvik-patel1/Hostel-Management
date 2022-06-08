@@ -8,6 +8,7 @@ async function verifyToken(req, res, next) {
     if (token) {
       token = token.split(" ")[1];
     //   console.log("adgfsdggfgfg",process.env.SECRET_KEY)
+      // eslint-disable-next-line no-undef
       const payload = jwt.verify(token, process.env.SECRET_KEY);
     //   console.log(payload);
       if (payload) {
@@ -23,7 +24,7 @@ async function verifyToken(req, res, next) {
         req.role = foundUser.role;
         return next();
       } else {
-        return res.status(403).json({ message: error.message });
+        return res.status(403).json({ message: "Invalid token" });
       }
     } else {
       return res.status(403).json({ message: "Token not found !!" });
