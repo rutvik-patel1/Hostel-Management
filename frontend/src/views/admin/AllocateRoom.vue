@@ -57,7 +57,7 @@ getStudentData(){
   getPendingStudentData().then((res)=>{
     this.students = res.data.data
   })
-  .catch((err)=>{
+  .catch(()=>{
     this.$notify({
             title: "Error",
             text: "Something went wrong!!",
@@ -69,10 +69,10 @@ getStudentData(){
 
 
   allocateRoom(studentid,roomid){
-    allocateRoomById(studentid,roomid).then((res)=>{
+    allocateRoomById(studentid,roomid).then(()=>{
         this.getStudentData()
     })
-    .catch((err)=>{
+    .catch(()=>{
       this.$notify({
             title: "Error",
             text: "Something went wrong!!",
@@ -87,7 +87,7 @@ getStudentData(){
          this.rooms = result.map(each=> each.roomNo )
        }
     })
-    .catch((err)=>{
+    .catch(()=>{
       this.$notify({
             title: "Error",
             text: "Something went wrong!!",

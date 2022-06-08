@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import Cookies from 'js-cookie'
 export default {
     created(){

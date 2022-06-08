@@ -1,8 +1,9 @@
 import axios from 'axios';
-import store from '../store/index'
 import Cookies from 'js-cookie'
+
 const axiosInstance = axios.create({
-    baseURL : process.env.VUE_APP_RESTURL
+    // eslint-disable-next-line no-undef
+    baseURL: process.env.VUE_APP_RESTURL,
 })
 
 axiosInstance.interceptors.request.use(

@@ -34,7 +34,7 @@ export default {
           password:this.password
         }
         this.$store.dispatch('user/login',payload)
-        .then((res) => {
+        .then(() => {
            this.$notify({
             title: "Success",
             text: "You are now loggedIn",

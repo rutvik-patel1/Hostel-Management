@@ -31,7 +31,7 @@ created(){
           email:this.email,
           password:this.password
         }
-      register(payload).then((res)=>{
+      register(payload).then(()=>{
         this.$notify({
             title: "Success",
             text: "Registered Successfully",

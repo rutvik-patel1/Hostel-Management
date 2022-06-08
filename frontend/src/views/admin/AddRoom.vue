@@ -67,7 +67,7 @@ methods:{
             type:'success'
             });
             console.log(res);
-        }).catch(err => {
+        }).catch(() => {
             this.$notify({
             title: "Error",
             text: "Something went wrong!!",

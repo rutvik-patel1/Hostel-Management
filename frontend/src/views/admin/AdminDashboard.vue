@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import TheHeader from "../../components/TheHeader.vue";
+
 import Cookies from 'js-cookie';
 export default {
   methods:{ 

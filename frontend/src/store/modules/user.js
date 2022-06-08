@@ -69,7 +69,7 @@ const actions = {
                     commit("SET_EMAIL",data.email)
                     if(data.role == 'admin'){
                         commit("SET_ISADMIN",true)
-                    };
+                    }
                     resolve(data)
                 })
                 .catch((error) => {

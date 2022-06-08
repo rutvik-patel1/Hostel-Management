@@ -82,7 +82,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
+
 import TheHeader from "../components/TheHeader.vue";
 import { getStudentData , uploadStudentData } from "../api/auth";
 export default {
@@ -125,7 +125,7 @@ export default {
      .then(()=>{
        this.getData()
      })
-     .catch((err) => {
+     .catch(() => {
        this.$notify({
             title: "Error",
             text: 'Send complete data!',

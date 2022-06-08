@@ -70,7 +70,7 @@ created(){
   .then((res) => {
     this.rooms = res.data.data
   })
-  .catch((err) => {
+  .catch(() => {
     this.$notify({
             title: "Error",
             text: "Something went wrong!!",

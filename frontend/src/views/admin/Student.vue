@@ -1,3 +1,4 @@
+/* eslint-disable vue/multi-word-component-names */
 <template>
   <div>
      <h2 style="color:#0b4b45;">Student Details</h2>
@@ -37,7 +38,7 @@ created(){
   getStudentData().then((res)=>{
     this.students = res.data.data
   })
-  .catch((err)=>{
+  .catch(()=>{
     this.$notify({
             title: "Error",
             text: "Something went wrong!!",

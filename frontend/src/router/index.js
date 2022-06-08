@@ -1,7 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import store  from '../store/index'
-import { details } from '../api/auth'
-import { notify } from '@kyvg/vue3-notification'
 import Cookies from 'js-cookie'
 const routes = [
   {
@@ -52,7 +50,7 @@ const routes = [
       {
         path:'room',
         name:'room',
-        component: () => import('../views/admin/Room.vue'),
+        component: () => import('../views/admin/RoomView.vue'),
       },
       {
         path:'addroom',
