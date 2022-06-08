@@ -31,3 +31,10 @@ export function uploadStudentData(data){
     data
   })
 }
+
+export function details(){
+  return axios({
+    url:'/details',
+    method:'get'
+  })
+}
