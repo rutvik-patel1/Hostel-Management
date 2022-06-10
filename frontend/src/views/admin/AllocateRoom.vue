@@ -33,7 +33,7 @@
              </tr>
            </tbody>
      </table>
-     {{roomNo}}
+     <!-- {{roomNo}} -->
   </div>
 </template>
 
