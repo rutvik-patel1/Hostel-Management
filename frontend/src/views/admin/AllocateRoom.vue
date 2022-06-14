@@ -1,7 +1,7 @@
 <template>
   <div>
      <h2 style="color:#0b4b45;">Allocate Room</h2>
-     <!-- 1	Rutvik45	rutvik1@gmail.com	1234567890	hahahahahahaha	4	2022	1007 -->
+     
       <div v-if="students.length ===  0">No pending student found!!</div>
       <table class="table" v-else>
            <thead>
